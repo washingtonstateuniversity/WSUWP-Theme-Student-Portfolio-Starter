@@ -36,7 +36,7 @@ class WSU_Portfolio_Starter_Theme {
 		}
 
 		ob_start();
-		if ( is_user_logged_in() ) :
+		if ( is_user_logged_in() && is_user_member_of_blog() ) :
 			wp_enqueue_script( 'portfolio_create_request', get_stylesheet_directory_uri() . '/js/portfolio-create.js', array( 'jquery' ), $this->get_theme_version(), true );
 			wp_localize_script( 'portfolio_create_request', 'portfolio_create_data', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 			?>
@@ -51,7 +51,8 @@ class WSU_Portfolio_Starter_Theme {
 			</div>
 		<?php else : ?>
 			<div class="portfolio-auth-form">
-				WSU Student Portfolios can be created by authorized users of this network. Please <a href="<?php echo esc_url( wp_login_url( home_url() ) ); ?>">authenticate</a> with your WSU NID to access the portfolio creation form.
+				<p>WSU Student Portfolios can be created by authorized users of this site. Please <a href="<?php echo esc_url( wp_login_url( home_url() ) ); ?>">login</a> with your WSU NID to access the portfolio creation form.</p>
+				<p>If you have any trouble logging in, please contact your instructor.</p>
 			</div>
 		<?php endif;
 
@@ -83,7 +84,7 @@ class WSU_Portfolio_Starter_Theme {
 		}
 
 		if ( 'project.wp.wsu.dev' === $_SERVER['HTTP_HOST'] ) {
-			$portfolio_domain = 'project.wp.wsu.dev';
+			$portfolio_domain = 'sites.wsu.dev';
 			$portfolio_scheme = 'http://';
 		} else {
 			$portfolio_domain = 'sites.wsu.edu';

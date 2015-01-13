@@ -50,12 +50,12 @@ html {
 	color: #981e32;
 	padding: 30px 15px;
 	width: 68%;
-	height: 55px;
 	font-size: 1.2rem;
 	line-height: 1.8rem;
 }
 
 .portfolio-auth-form a {
+	color: #00a5bd;
 	font-weight: 700;
 }
 
