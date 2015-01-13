@@ -83,7 +83,7 @@ class WSU_Portfolio_Starter_Theme {
 		}
 
 		if ( 'project.wp.wsu.dev' === $_SERVER['HTTP_HOST'] ) {
-			$portfolio_domain = 'project.wp.wsu.dev';
+			$portfolio_domain = 'sites.wsu.dev';
 			$portfolio_scheme = 'http://';
 		} else {
 			$portfolio_domain = 'sites.wsu.edu';
