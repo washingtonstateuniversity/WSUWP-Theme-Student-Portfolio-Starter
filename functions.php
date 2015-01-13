@@ -36,7 +36,7 @@ class WSU_Portfolio_Starter_Theme {
 		}
 
 		ob_start();
-		if ( is_user_logged_in() ) :
+		if ( is_user_logged_in() && is_user_member_of_blog() ) :
 			wp_enqueue_script( 'portfolio_create_request', get_stylesheet_directory_uri() . '/js/portfolio-create.js', array( 'jquery' ), $this->get_theme_version(), true );
 			wp_localize_script( 'portfolio_create_request', 'portfolio_create_data', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 			?>
