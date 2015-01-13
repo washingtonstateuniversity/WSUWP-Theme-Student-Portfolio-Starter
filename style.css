@@ -1,0 +1,189 @@
+/*
+ Theme Name:     WSU Student Portfolio Starter
+ Theme URI:      http://web.wsu.edu
+ Description:    Used with student portfolio networks to aid in portfolio creation.
+ Author:         WSU University Communications
+ Author URI:     http://ucomm.wsu.edu
+ Template:       spine
+ Version:        0.0.1
+*/
+html {
+	background-color: rgb(211, 225, 227);
+	height: 100%;
+}
+
+.home h2 {
+	margin-top: 105px;
+	font-size: 5rem;
+	font-weight: 400;
+	color: #981e32;
+}
+
+.home .spacing-tight .single.gutter .column {
+	padding-left: 4rem;
+	padding-top: 4rem;
+}
+
+.home .spacing-tight.size-small .single.gutter .column {
+	padding-left: 1rem;
+	padding-top: 1rem;
+}
+
+.home .size-small h2 {
+	margin-top: 25px;
+	font-size: 2rem;
+}
+
+.portfolio-create-form {
+	background: none;
+	padding: 30px 15px;
+	width: 88%;
+	height: 210px;
+}
+
+.size-small .portfolio-create-form {
+	width: 100%;
+	padding: 20px 0 0 0;
+}
+
+.portfolio-auth-form {
+	color: #981e32;
+	padding: 30px 15px;
+	width: 68%;
+	height: 55px;
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+}
+
+.portfolio-auth-form a {
+	font-weight: 700;
+}
+
+.portfolio-create-form label, .portfolio-create-form input, .portfolio-pre-input {
+	float: left;
+}
+
+.portfolio-pre-input, .portfolio-create-form label {
+	clear: left;
+}
+
+.portfolio-create-form label {
+	font-size: 2.1rem;
+	line-height: 2.1rem;
+	margin-bottom: 20px;
+	color: #981e32;
+	font-weight: 300;
+}
+
+.portfolio-create-form input[type="submit"] {
+	margin-left: 0;
+	margin-top: 15px;
+}
+
+.size-small .portfolio-create-form label {
+	font-size: 1.3rem;
+	margin-bottom: 10px;
+}
+
+.portfolio-loading {
+	width: 375px;
+	height: 185px;
+	background-repeat: no-repeat;
+	background-position-x: 250px;
+	background-position-y: 50px;
+}
+
+.size-small .portfolio-loading {
+	background-position-x: 70px;
+	width: 200px;
+}
+
+.portfolio-create-error {
+	background: orange;
+	color: #fff;
+	padding: 15px;
+	width: 75%;
+	margin-bottom: 30px;
+}
+
+.size-small .portfolio-create-error {
+	width: 100%;
+	padding: 15px 0 15px 6px;
+}
+
+.portfolio-create-success {
+	background: #fff;
+}
+
+.size-small .portfolio-create-success {
+	height: 350px;
+}
+
+.portfolio-create-success p {
+	font-size: 1.3rem;
+	line-height: 1.8rem;
+}
+
+.size-small .portfolio-create-success p {
+	font-size: 1.1rem;
+	padding: 10px;
+}
+
+#portfolio-name {
+	clear: left;
+	height: 46px;
+	line-height: 1;
+	font-size: 1.5rem;
+	width: 585px;
+}
+
+.size-small #portfolio-name {
+	width: 100%;
+}
+
+.portfolio-path-label {
+	margin-top: 20px;
+}
+
+#portfolio-path, .portfolio-pre-input {
+	display: block;
+	height: 46px;
+	line-height: 1;
+	font-size: 1.2rem;
+}
+
+#portfolio-path {
+	width: 280px;
+}
+
+.size-small #portfolio-path {
+	width: 210px;
+	margin-bottom: 20px;
+}
+
+.portfolio-pre-input {
+	line-height: 3rem;
+	padding-right: 6px;
+	color: #981e32;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+
+.size-small .portfolio-pre-input {
+	font-size: 1rem;
+}
+
+.portfolio-create {
+	height: 46px;
+	font-size: 1.2rem;
+	margin-left: 10px;
+	width: 135px;
+}
+
+.size-small .portfolio-create {
+	margin: 10px auto;
+	width: 135px;
+	display: block;
+	float: none;
+	clear: left;
+}
