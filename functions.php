@@ -51,7 +51,8 @@ class WSU_Portfolio_Starter_Theme {
 			</div>
 		<?php else : ?>
 			<div class="portfolio-auth-form">
-				WSU Student Portfolios can be created by authorized users of this network. Please <a href="<?php echo esc_url( wp_login_url( home_url() ) ); ?>">authenticate</a> with your WSU NID to access the portfolio creation form.
+				<p>WSU Student Portfolios can be created by authorized users of this site. Please <a href="<?php echo esc_url( wp_login_url( home_url() ) ); ?>">login</a> with your WSU NID to access the portfolio creation form.</p>
+				<p>If you have any trouble logging in, please contact your instructor.</p>
 			</div>
 		<?php endif;
 
