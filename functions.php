@@ -5,7 +5,7 @@ class WSU_Portfolio_Starter_Theme {
 	/**
 	 * @var string Current theme version.
 	 */
-	public $theme_version = '0.0.1';
+	public $theme_version = '0.0.3';
 
 	public function __construct() {
 		add_shortcode( 'wsuwp_portfolio_signup', array( $this, 'portfolio_signup_display' ) );
