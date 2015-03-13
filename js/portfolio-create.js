@@ -21,6 +21,7 @@
 
 		var portfolio_name = $('#portfolio-name').val(),
 			portfolio_path = $('#portfolio-path').val(),
+			path_prefix    = $('#path-prefix').val(),
 			nonce        = $('#portfolio-create-nonce').val();
 
 		// Build the data for our ajax call
@@ -28,6 +29,7 @@
 			action:       'submit_portfolio_create_request',
 			portfolio_name: portfolio_name,
 			portfolio_path: portfolio_path,
+			path_prefix:    path_prefix,
 			_ajax_nonce:  nonce
 		};
 

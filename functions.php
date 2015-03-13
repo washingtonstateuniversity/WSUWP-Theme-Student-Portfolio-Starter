@@ -30,9 +30,18 @@ class WSU_Portfolio_Starter_Theme {
 	 *
 	 * @return string HTML output.
 	 */
-	public function portfolio_signup_display() {
+	public function portfolio_signup_display( $atts ) {
 		if ( ! is_front_page() ) {
 			return '';
+		}
+
+		$default_atts = array(
+			'path_prefix' => '',
+		);
+		$atts = shortcode_atts( $default_atts, $atts );
+
+		if ( '' !== $atts['path_prefix'] ) {
+			$atts['path_prefix'] = sanitize_title( $atts['path_prefix'] ) . '-';
 		}
 
 		ob_start();
@@ -43,10 +52,11 @@ class WSU_Portfolio_Starter_Theme {
 			<div class="portfolio-loading" style="display: none; background-image: url(<?php echo get_stylesheet_directory_uri() . '/spinner.gif'; ?>);"></div>
 			<div class="portfolio-create-form">
 				<input type="hidden" id="portfolio-create-nonce" value="<?php echo esc_attr( wp_create_nonce( 'portfolio-create-nonce' ) ); ?>" />
+				<input type="hidden" id="path-prefix" value="<?php echo esc_attr( $atts['path_prefix'] ); ?>" />
 				<label for="portfolio-name">What should the portfolio title be?</label>
 				<input type="text" name="portfolio_name" id="portfolio-name" value="" />
 				<label for="portfolio-path" class="portfolio-path-label">Choose a URL for your portfolio:</label>
-				<span class="portfolio-pre-input">https://sites.wsu.edu/hbm-182-</span><input type="text" name="portfolio_path" id="portfolio-path" value="" />
+				<span class="portfolio-pre-input">https://sites.wsu.edu/<?php echo esc_html( $atts['path_prefix'] ); ?></span><input type="text" name="portfolio_path" id="portfolio-path" value="" />
 				<input type="submit" class="portfolio-create" id="submit-portfolio-create" value="Create">
 			</div>
 		<?php else : ?>
@@ -83,6 +93,11 @@ class WSU_Portfolio_Starter_Theme {
 			die();
 		}
 
+		if ( ! isset( $_POST['path_prefix'] ) ) {
+			echo json_encode( array( 'error' => 'Path prefix data was not passed with the request. Please reload and try again.' ) );
+			die();
+		}
+
 		if ( 'project.wp.wsu.dev' === $_SERVER['HTTP_HOST'] ) {
 			$portfolio_domain = 'sites.wsu.dev';
 			$portfolio_scheme = 'http://';
@@ -92,8 +107,9 @@ class WSU_Portfolio_Starter_Theme {
 		}
 
 		$portfolio_path = sanitize_title( $_POST['portfolio_path'] );
-		// @todo This is hardcoded for HBM 182, it should be dynamic to the site, maybe via the shortcode somehow.
-		$portfolio_path = '/hbm-182-' . trailingslashit( $portfolio_path );
+		$path_prefix = sanitize_text_field( $_POST['path_prefix'] );
+
+		$portfolio_path = '/' . $path_prefix . trailingslashit( $portfolio_path );
 
 		$user_id = get_current_user_id();
 		$site_id = get_current_site()->id;
